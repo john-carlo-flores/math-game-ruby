@@ -23,6 +23,6 @@ class Question
     left = num1.to_f
     right = num2.to_f
     operator = sign.to_sym
-    left.send(operator, right).to_f
+    left.send(operator, right).to_f.round(2)
   end
 end
