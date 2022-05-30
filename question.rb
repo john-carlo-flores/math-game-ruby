@@ -6,8 +6,8 @@ class Question
 
   # generate question to ask user
   def setup_question(numbers)
-    number1: numbers.sample
-    number2: numbers.sample
+    number1 = numbers.sample
+    number2 = numbers.sample
     sign = @operators.sample
     operator = @operator_strings[@operators.index sign]
     
@@ -19,8 +19,10 @@ class Question
 
   private
 
-  def calculate(left, sign, right)
+  def calculate(num1, sign, num2)
+    left = num1.to_f
+    right = num2.to_f
     operator = sign.to_sym
-    left.send(operator, right)
+    left.send(operator, right).to_f
   end
 end
